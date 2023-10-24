@@ -1,6 +1,4 @@
-import { ReactElement } from "react";
-
-const Table = (): ReactElement => {
+const Table = () => {
   return <div>Table</div>;
 };
 
