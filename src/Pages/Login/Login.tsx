@@ -4,7 +4,10 @@ import CustomForm from "../../Components/Form/Form";
 import { FormDataTypes } from "../../Components/Form/types";
 
 const Login = () => {
-  const [formValue, setFormValue] = useState({
+  const [formValue, setFormValue] = useState<{
+    login: string;
+    password: string;
+  }>({
     login: "",
     password: "",
   });

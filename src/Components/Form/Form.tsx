@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, FormEvent } from "react";
+import { ChangeEvent, Dispatch, FC, FormEvent, SetStateAction } from "react";
 import CustomInput from "./Input";
 import "./index.css";
 import { FormDataTypes } from "./types";
@@ -9,7 +9,7 @@ const CustomForm: FC<CustomFormProps> = ({
   title,
   formData,
 }) => {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     setFormValue({
       ...formValue,
@@ -17,7 +17,7 @@ const CustomForm: FC<CustomFormProps> = ({
     });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     console.log("Form data submitted:", formValue);
   };
@@ -48,8 +48,8 @@ const CustomForm: FC<CustomFormProps> = ({
 export default CustomForm;
 
 type CustomFormProps = {
-  formValue: any;
-  setFormValue: any;
+  formValue: { [key: string]: string };
+  setFormValue: Dispatch<SetStateAction<any>>;
   title: string;
   formData: FormDataTypes[];
 };
