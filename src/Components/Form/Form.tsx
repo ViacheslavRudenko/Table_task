@@ -8,6 +8,7 @@ const CustomForm: FC<CustomFormProps> = ({
   setFormValue,
   title,
   formData,
+  handleSubmit,
 }) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
@@ -15,11 +16,6 @@ const CustomForm: FC<CustomFormProps> = ({
       ...formValue,
       [name]: value,
     });
-  };
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
-    e.preventDefault();
-    console.log("Form data submitted:", formValue);
   };
 
   return (
@@ -52,4 +48,5 @@ type CustomFormProps = {
   setFormValue: Dispatch<SetStateAction<any>>;
   title: string;
   formData: FormDataTypes[];
+  handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
 };
